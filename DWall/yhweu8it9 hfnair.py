@@ -12,7 +12,7 @@ frame2 = tk.Frame(window)
 frame.pack(side=tk.LEFT, expand=True)
 frame2.pack(side=tk.LEFT, expand=True)
 
-#Frame 1 wigets
+#Frame 1 widgets
 tk.Button(frame, text = "Previous Background").grid(row=1, column=1)
 
 load = Image.open("jupiter.jpg")
@@ -22,9 +22,9 @@ while widthz >= 600:
     widthz, heightz = load.size
 render = ImageTk.PhotoImage(load)
 img = tk.Label(frame, image=render)
-img.grid(row=2, column=1)
+img.grid(row=3, column=1)
 
-#Frame 2 wigets
+#Frame 2 widgets
 tk.Button(frame2, text = "Select Background").grid(row=1, column=1)
 
 
