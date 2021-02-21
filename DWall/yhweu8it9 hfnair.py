@@ -6,6 +6,7 @@ window = tk.Tk()
 
 # Add title
 window.title("Background Manager")
+window.attributes('-alpha',0.5)
 
 frame = tk.Frame(window, bg='black')
 frame2 = tk.Frame(window)
