@@ -5,16 +5,16 @@ import json
 window = Tk()
 
 #Weather Map
-x = requests.get("https://api.openweathermap.org/data/2.5/weather?q=London&appid=70f51f3e60f38e95a87cc6695474f899")
+x = requests.get("https://api.openweathermap.org/data/2.5/weather?q=Indiana&units=imperial&appid=70f51f3e60f38e95a87cc6695474f899")
 api = json.loads(x.content)
 
 y = api['main']
 current_temprature = y['temp']
-humidity = y['humidity']
+feelsLike = y['feels_like']
 tempmin = y['temp_min']
 tempmax = y['temp_max']
 
-weather = Label(window, text=humidity)
+weather = Label(window, text= str(current_temprature) + " Feels Like: " + str(feelsLike))
 weather.pack()
 
 #Air Quality
