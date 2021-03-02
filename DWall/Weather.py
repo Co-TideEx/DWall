@@ -4,8 +4,8 @@ import json
 
 window = Tk()
 
-#Weather Map
-x = requests.get("https://api.openweathermap.org/data/2.5/weather?q=Indiana&units=imperial&appid=70f51f3e60f38e95a87cc6695474f899")
+#Weather Information
+x = requests.get("https://api.openweathermap.org/data/2.5/weather?q=Fishers&units=imperial&appid=70f51f3e60f38e95a87cc6695474f899")
 api = json.loads(x.content)
 
 y = api['main']
@@ -14,6 +14,16 @@ feelsLike = y['feels_like']
 tempmin = y['temp_min']
 tempmax = y['temp_max']
 
+z = api['wind']
+windSpeed = z['speed']
+#Gets wind direction and converts it to NSEW
+windDirection = z['deg']
+sector = round((windDirection % 360)/45)
+directions = ["N","NE","E","SE","S","SW","W","NW","N"]
+windDirection = directions[sector]
+print(windDirection)
+
+#Label and Pack weather info
 weather = Label(window, text= str(current_temprature) + " Feels Like: " + str(feelsLike))
 weather.pack()
 
@@ -25,6 +35,7 @@ city = api[0]['ReportingArea']
 quality = api[0]['AQI']
 category = api[0]['Category']['Name']
 
+#Label and pack air quality info
 airQuality = Label(window, text=city + " - Air Quality : " + str(quality) + " " + category)
 airQuality.pack()
 
