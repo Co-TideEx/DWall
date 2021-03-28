@@ -1,5 +1,5 @@
 import tkinter as tk
-from tkinter import *
+from tkppinter import *
 from PIL import Image, ImageTk
 from tkinter import filedialog
 from wallpaper import get_wallpaper, set_wallpaper
